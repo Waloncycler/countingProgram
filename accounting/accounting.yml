@@ -1,0 +1,38 @@
+tags:
+  - Accounting API
+get:
+  description: None
+post:
+  descrition: 上传消费记录
+parameters:
+  - name: expense
+    in: body
+    type: json
+    required: true
+    description: expense record
+
+  - name: expense type
+    in: query
+    type: string
+    description: expense catagory
+
+responses:
+  500:
+    description: Error!
+  200:
+    description: Success!
+    schema:
+      id: ExpenseDto
+      properties:
+        date:
+          type: string
+          description: expense datetime
+          default: 00-00-00
+        item:
+          type: string
+          description: expense item name
+          default: "daily commute"
+        expense:
+          type: string
+          desription: money
+          default: 0.00
